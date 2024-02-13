@@ -25,6 +25,17 @@
         .row {
             margin-bottom: 10px;
         }
+        #message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -53,15 +64,21 @@
                 <div class="button" style="visibility: hidden;"></div>
             </div>
         </div>
+        <div id="message"></div>
     </div>
 
     <script>
         var code = '';
+        var messageDisplay = document.getElementById('message');
 
         function addNumber(number) {
             if (code.length < 3) {
                 code += number;
                 updateCodeDisplay();
+            } else if (code.length === 3) {
+                code += number;
+                updateCodeDisplay();
+                checkCode();
             }
         }
 
@@ -69,7 +86,7 @@
             var codeDisplay = document.getElementById('codeDisplay');
             codeDisplay.textContent = code.replace(/./g, '*');
         }
-        
+
         function checkCode() {
             if (code === '624') {
                 messageDisplay.textContent = 'CAPSULE DÉBLOQUÉE';
