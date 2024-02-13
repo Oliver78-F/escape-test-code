@@ -73,12 +73,17 @@
 
         function addNumber(number) {
             if (code.length < 3) {
+                if (code.length === 0) {
+                    // Effacer le message lors de la saisie du premier chiffre
+                    messageDisplay.textContent = '';
+                    messageDisplay.classList.remove('success');
+                    messageDisplay.classList.remove('error');
+                }
                 code += number;
                 updateCodeDisplay();
-            } else if (code.length === 3) {
-                code += number;
-                updateCodeDisplay();
-                checkCode();
+                if (code.length === 3) {
+                    checkCode();
+                }
             }
         }
 
