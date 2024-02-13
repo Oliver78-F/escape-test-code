@@ -59,7 +59,7 @@
         var code = '';
 
         function addNumber(number) {
-            if (code.length < 4) {
+            if (code.length < 3) {
                 code += number;
                 updateCodeDisplay();
             }
@@ -68,6 +68,16 @@
         function updateCodeDisplay() {
             var codeDisplay = document.getElementById('codeDisplay');
             codeDisplay.textContent = code.replace(/./g, '*');
+        }
+        
+        function checkCode() {
+            if (code === '624') {
+                messageDisplay.textContent = 'CAPSULE DÉBLOQUÉE';
+                messageDisplay.classList.add('success');
+            } else {
+                messageDisplay.textContent = 'ESSAIE ENCORE';
+                messageDisplay.classList.add('error');
+            }
         }
     </script>
 </body>
