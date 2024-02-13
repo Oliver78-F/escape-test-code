@@ -1,20 +1,61 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quelle est la combinaison pour ouvrir la capsule ? </title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Digicode</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #ccc;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Vérification du code d'ouverture de la capsule</h1>
-        <form id="codeForm">
-            <label for="code">Entrez votre code :</label>
-            <input type="text" id="code" name="code" required>
-            <button type="submit">Vérifier</button>
-        </form>
-        <div id="message"></div>
+        <h2>Entrez le code :</h2>
+        <div id="codeDisplay"></div>
+        <div id="buttons">
+            <div class="button" onclick="addNumber(1)">1</div>
+            <div class="button" onclick="addNumber(2)">2</div>
+            <div class="button" onclick="addNumber(3)">3</div>
+            <div class="button" onclick="addNumber(4)">4</div>
+            <div class="button" onclick="addNumber(5)">5</div>
+            <div class="button" onclick="addNumber(6)">6</div>
+            <div class="button" onclick="addNumber(7)">7</div>
+            <div class="button" onclick="addNumber(8)">8</div>
+            <div class="button" onclick="addNumber(9)">9</div>
+            <div class="button" onclick="addNumber(10)">10</div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        var code = '';
+
+        function addNumber(number) {
+            if (code.length < 4) {
+                code += number;
+                updateCodeDisplay();
+            }
+        }
+
+        function updateCodeDisplay() {
+            var codeDisplay = document.getElementById('codeDisplay');
+            codeDisplay.textContent = code.replace(/./g, '*');
+        }
+    </script>
 </body>
 </html>
