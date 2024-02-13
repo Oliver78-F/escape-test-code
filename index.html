@@ -12,7 +12,16 @@
 <div id="bg"></div>
 
 <form>
-  <div class="form-field">
+      <div class="container">
+        <h1>Vérification du code d'ouverture de la capsule</h1>
+        <form id="codeForm">
+            <label for="code">Entrez votre code :</label>
+            <input type="text" id="code" name="code" required>
+            <button type="submit">Vérifier</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <div class="form-field">
     <input type="email" placeholder="Email / Username" required/>
   </div>
   
